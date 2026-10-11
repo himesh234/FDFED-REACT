@@ -8,12 +8,12 @@ export const transitHubApi = {
   getCapacity: (hubId) => apiRequest(`/hub/${hubId}/capacity`),
   getAgencies: () => apiRequest("/system/agencies"),
   inscan: (hubId, trackingId) =>
-    apiRequest(`/hub/${hubId}/inscan`, {
+    apiRequest(`/hub/${encodeURIComponent(hubId)}/inscan`, {
       method: "POST",
       body: JSON.stringify({ trackingId }),
     }),
   outscan: (hubId, trackingId) =>
-    apiRequest(`/hub/${hubId}/outscan`, {
+    apiRequest(`/hub/${encodeURIComponent(hubId)}/outscan`, {
       method: "POST",
       body: JSON.stringify({ trackingId }),
     }),
